@@ -20,7 +20,7 @@ class Artikel(models.Model):
     pris = models.DecimalField(max_digits=8, decimal_places=2, default=Decimal('0.00'))
 
     def __str__(self):
-        return self.typ + ', ' + self.artikel_namn
+        return self.artikel_namn
 
 
 class Order(models.Model):
@@ -28,9 +28,10 @@ class Order(models.Model):
     datum_resning = models.DateField()
     datum_rivning = models.DateField()
     pristyp = models.CharField(max_length=100, default='Standard')
+    offert = models.BooleanField(default=0)
 
     def __str__(self):
-        return str(self.datum_resning) + ', ' + str(self.kund)
+        return str(self.datum_resning) + ' till ' +  str(self.datum_rivning) + ', ' + self.kund.adress_stad + ' -- ' + str(self.kund)
 
 class OrderLista(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
