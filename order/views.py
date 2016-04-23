@@ -91,7 +91,8 @@ def index(request):
 # Funktion for att hamta alla artiklar och gora till dictionary.
 def alla_artiklar():
     dict_art = {}
-    artiklar = Artikel.objects.all()
+    artiklar = Artikel.objects.order_by('typ')
+    print artiklar
     for art in artiklar:
         dict_art[art.id] = art.antal
 

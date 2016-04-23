@@ -15,7 +15,7 @@ class Kund(models.Model):
 
 class Artikel(models.Model):
     artikel_namn = models.CharField(max_length=100)
-    typ = models.CharField(max_length=100)
+    typ = models.IntegerField(max_length=None)
     antal = models.IntegerField(max_length=None)
     pris = models.DecimalField(max_digits=8, decimal_places=2, default=Decimal('0.00'))
 
