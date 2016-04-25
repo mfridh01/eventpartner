@@ -80,6 +80,8 @@ def index(request):
         get_artikel = Artikel.objects.get(id=key)
         if value < 0:
             value_color = "#FFB5B7"
+        elif value == 0:
+            value_color = "#A5EAFF"
         else:
             value_color = "#BBFFB7"
 
